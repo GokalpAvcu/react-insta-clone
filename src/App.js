@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Input from "./components/Input";
+import {AiFillFacebook} from "react-icons/ai";
 
 function App() {
   const ref = useRef();
@@ -72,23 +73,10 @@ function App() {
         </a>
 
         <form className="grid gap-y-1.5">
-          <Input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            label="Phone number, username or email"
-          />
-          <Input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            label="Password"
-          />
-          <button
-            type="submit"
-            disabled={!enable} // enable değilse disabled olsun
-            className="h-[30px] rounded bg-brand font-semibold text-white text-sm disabled:opacity-50"
-          >
+          <Input type="text" value={username} onChange={(e) => setUsername(e.target.value)} label="Phone number, username or email"/>
+          <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} label="Password"/>
+          <button type="submit" disabled={!enable} // enable değilse disabled olsun 
+          className="h-[30px] rounded bg-brand font-semibold text-white text-sm disabled:opacity-50"  >
             {" "}
             Log In
           </button>
@@ -99,6 +87,10 @@ function App() {
             </span>
             <div className="h-px bg-gray-300 flex-1" />
           </div>
+          <a href="#" className="flex justify-center items-center gap-x-2 text-sm font-semibold text-facebook">
+            <AiFillFacebook size={20} />
+            Log in with Facebook
+          </a>
         </form>
       </div>
     </div>
