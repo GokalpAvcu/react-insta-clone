@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Input from "./components/Input";
 
 function App() {
   const ref = useRef();
@@ -71,30 +72,18 @@ function App() {
         </a>
 
         <form className="grid gap-y-1.5">
-          <label className="block relative">
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required={true}
-              className="bg-zinc-50 px-2 border rounded-sm outline-none text-xs focus:border-gray-400 w-full h-[38px] valid:pt-[10px] peer"
-            />
-            <small className="absolute top-1/2 left-[9px] cursor-text pointer-events-none text-xs text-gray-400 -translate-y-1/2  transition-all peer-valid:text-[10px] peer-valid:top-2.5 ">
-              Phone number, username or email
-            </small>
-          </label>
-          <label className="block relative">
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required={true}
-              className="bg-zinc-50 px-2 border rounded-sm outline-none text-xs focus:border-gray-400 w-full h-[38px] valid:pt-[10px] peer"
-            />
-            <small className="absolute top-1/2 left-[9px] cursor-text pointer-events-none text-xs text-gray-400 -translate-y-1/2  transition-all peer-valid:text-[10px] peer-valid:top-2.5 ">
-              Password
-            </small>
-          </label>
+          <Input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            label="Phone number, username or email"
+          />
+          <Input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            label="Password"
+          />
           <button
             type="submit"
             disabled={!enable} // enable değilse disabled olsun
